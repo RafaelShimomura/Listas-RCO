@@ -4,6 +4,7 @@ from Falha import *
 from matriz import matriz
 from tdglobal import tdglobal
 from tdlocal import tdlocal
+
 def ex5():
     E1 = 77.0e9
     E2 = 75.0e9
@@ -42,5 +43,6 @@ def ex5():
 
     MS_TH = TsaiHill(tensao_lam_g_5, material)
     MS_mais, MS_menos = TsaiWu(tensao_lam_g_5, material)
-
+    MS_max = MaxTensao(tensao_lam_g_5, material)
+    
     return(MS_TH, MS_mais, MS_menos, MS_max)
