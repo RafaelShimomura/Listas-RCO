@@ -55,5 +55,27 @@ def TsaiWu(sigma, material):
     
     return(MS_mais, MS_menos)
 
-def MaxTensao():
-    return()
+def MaxTensao(sigma, material):
+    sigma_1 = sigma[0]
+    sigma_2 = sigma[1]
+    sigma_12 = sigma[2]
+
+    Xt = material[4]
+    Yt = material[5]
+    Xc = material[6]
+    Yc = material[7]
+    S12 = material[8]
+    
+    if sigma_1 > 0:
+        MSx_max = Xt/sigma_1
+    else:
+        MSx_max = Xc/sigma_1
+    if sigma_2 > 0:
+        MSy_max = Yt/sigma_2
+    else:
+        MSy_max = Yc/sigma_2
+    MSc_max = S12/sigma_12
+
+    MS_max = max([MSx_max, MSy_max, MSc_max])
+    
+    return(MS_max)
